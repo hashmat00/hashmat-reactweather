@@ -46,116 +46,27 @@
 
 	"use strict";
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 
-	var GreeterMessage = React.createClass({
-	    displayName: "GreeterMessage",
+	var objOne = {
+	  name: 'hashmat',
+	  location: 'Antioch, CA'
+	};
 
-	    render: function render() {
+	var objTwo = _extends({
+	  age: 22
+	}, objOne);
 
-	        var name = this.props.name;
-	        var message = this.props.message;
+	console.log(objTwo);
 
-	        return React.createElement(
-	            "div",
-	            null,
-	            React.createElement(
-	                "h1",
-	                null,
-	                "Hello ",
-	                name
-	            ),
-	            React.createElement(
-	                "h3",
-	                null,
-	                "My ",
-	                message
-	            )
-	        );
-	    }
-	});
-
-	var GreeterForm = React.createClass({
-	    displayName: "GreeterForm",
-
-	    onFormSubmit: function onFormSubmit(e) {
-	        e.preventDefault();
-
-	        var updates = {};
-	        var name = this.refs.name.value;
-	        var message = this.refs.message.value;
-
-	        if (name.length > 0) {
-	            this.refs.name.value = '';
-	            updates.name = name;
-	        }
-
-	        if (message.length > 0) {
-	            this.refs.message.value = '';
-	            updates.message = message;
-	        }
-
-	        this.props.onNewData(updates);
-	    },
-
-	    render: function render() {
-	        return React.createElement(
-	            "form",
-	            { onSubmit: this.onFormSubmit },
-	            React.createElement(
-	                "div",
-	                null,
-	                React.createElement("input", { type: "text", ref: "name", placeholder: "enter name" })
-	            ),
-	            React.createElement(
-	                "div",
-	                null,
-	                React.createElement("textarea", { ref: "message", placeholder: "enter message" })
-	            ),
-	            React.createElement(
-	                "button",
-	                null,
-	                "Submit"
-	            )
-	        );
-	    }
-	});
-
-	var Greeter = React.createClass({
-	    displayName: "Greeter",
-
-
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            name: 'Reacts..',
-	            message: 'This is default message props'
-	        };
-	    },
-	    getInitialState: function getInitialState() {
-	        return {
-	            name: this.props.name,
-	            message: this.props.message
-	        };
-	    },
-
-	    handleNewData: function handleNewData(updates) {
-	        this.setState(updates);
-	    },
-
-	    render: function render() {
-	        var name = this.state.name;
-	        var message = this.state.message;
-	        return React.createElement(
-	            "div",
-	            null,
-	            React.createElement(GreeterMessage, { name: name, message: message }),
-	            React.createElement(GreeterForm, { onNewData: this.handleNewData })
-	        );
-	    }
-	});
-
-	ReactDOM.render(React.createElement(Greeter, { name: "props name" }), document.getElementById('app'));
+	ReactDOM.render(React.createElement(
+	  "h1",
+	  null,
+	  "Hashmat boilerplate app"
+	), document.getElementById('app'));
 
 /***/ },
 /* 1 */
